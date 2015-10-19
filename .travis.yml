@@ -1,0 +1,13 @@
+language: cpp
+
+sudo: required
+
+before_install:
+  - export DEVKITPRO=/home/travis/devkitPro
+  - export DEVKITARM=${DEVKITPRO}/devkitARM
+  - export CTRULIB=${DEVKITPRO}/libctru
+  - sh .travis-deps.sh
+
+script:
+  - cd src
+  - make
