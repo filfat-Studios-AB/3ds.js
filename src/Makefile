@@ -46,11 +46,12 @@ APP_AUTHOR      := filfat Studios AB
 #---------------------------------------------------------------------------------
 ARCH	:= 	-march=armv6k -mtune=mpcore -mfloat-abi=hard
 
-CFLAGS	:= -Wunused -g -Wall -O3 -mword-relocations \
-			-fomit-frame-pointer  \
+CFLAGS	:= -g -Wall -O2 -mword-relocations \
+			-fno-strict-aliasing \
+			-fomit-frame-pointer \
 			$(ARCH)
 
-CFLAGS	+=	$(INCLUDE) -std=c99  -Wunused -Wno-write-strings -DARM11 -D_3DS 
+CFLAGS	+=	$(INCLUDE) -DARM11 -D_3DS -std=c99
 
 CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11
 
