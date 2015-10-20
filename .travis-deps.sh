@@ -12,15 +12,14 @@ cd ctrulib/libctru && make ; cd -
 sudo cp -rf ctrulib/libctru/ ${DEVKITPRO}
 
 # Get, Build & Install dependencies
-export DEVKITARM=${DEVKITPRO}/devkitARM
 
 # portlibs
 #git clone https://github.com/xerpi/3ds_portlibs.git
 #cd 3ds_portlibs && sudo make all ; cd -
 
 # sf2dlib
-git clone https://github.com/xerpi/sf2dlib.git
-cd sf2dlib/libsf2d && sudo make install ; cd -
+#git clone https://github.com/xerpi/sf2dlib.git
+#cd sf2dlib/libsf2d && sudo make install ; cd -
 
 # sftdlib
 
