@@ -10,9 +10,7 @@ script:
 - make clean
 - make
 before_deploy:
-- cd src
 - zip dev *.3dsx *.smdh
-- cd ..
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
 - export GIT_TAG=$TRAVIS_BRANCH-rev$TRAVIS_BUILD_NUMBER
@@ -23,8 +21,8 @@ deploy:
   skip_cleanup: true
   provider: releases
   api_key:
-    secure: QDV8v5ayUtaTaO6pOZ0UX3AAKElIM1oYMTqRHT9EmhQ21IjvZFzN6m96yfNRb8G/58qzJ18BrbnQ2DOl9555f/avdfFbD2/0olh37VHrCLbhTEmxUKXLmhmRoKEc3sUeh7HS+j6kL5IiY/cvcaN6BrHa0o/HEh5pzCGzLxc0okSvsnM6DwO+SqF3z+lifabBrAxFJLpjulfsiyxOI+sVkMS4v4Q8nqRmedExZjoKdpJNpusMd0qCIztEfma4yCvqMkLPmkKoCpJ3FGMCbj9quiQoh2jm8tKQcVk+/DtjsFS/mwNuTWLFuHzuVfq/Jwf8rYuQYzQgmir1bTj/6SH6dfoxs29nq5MX0pu/fhMN86XHDGDRJMxqvYDbyCOnwESrQh1E/n1nxk+cv2Y7YsNZ5aouyjAv9SeSg1vSpwLzj6pPB7VKDLSyc2nD90FysOr6rVW0wFMni7sUym2w6PIRIXps8pHXolT6vMM0L2wWNdpvKTNLsqNgpKGk6doo3UJqzV8GtNls5jBOfKtbneY+IyBabaN8CgxEymCsdW7KvAAz32N5LyNWhoj2bZ7+SceFyiDS24WPnMmuikhaNkTLZ8yyWg9IyYQc1O8wIvPXFYPyiL0IDw7speJkmNTF805YO2+3B4H3s69A4jiifRTEgJ62Ch1pFP/j7fI8MWCDRMA=
-  file: "src/dev.zip"
+    secure: AUja1Xwg09Pibn5KVsQtQ5GC8KsFjPqxLgY9pUYPgpR/JxL/Lm2VL7IRf/jzOs/XErHXGoQsI6w1O5euZldcVGWt7ZDh8f3cZ5cGCYskQoGcUJN1txL7vxUcoiYznB9jBZ8upGRRr917emPu+kpSR5/EUnM95D7IPebRPzbmg1M5diBwjjuggva2ox9wLtc4wOOai/yNmy8bLFOyRJooDT698J3ZH4ndbOIlL3OwYE6pTQs3UNL9Pbmr9FOly4T7CKZmKEJ/j04G3EWW8mwU6dc1ydRadAY7lP4dkaHX42DVZBKCuhi51g6+FH1TQ2s+Y7Pdbe2TjIaNTTZA+yX5VGIHbn1v4RCxQWTdv0dh3C3sRXjplPpt/UX8KZJ/DSqUR1T/xif31is0CJuzXjNrc2ZsgsI7omQ6Yaw2iBYiyuEcESMpK+R+YFmrihFyhrHsUNqrqMcfNG5KY3JdsKq+LCtl1zDaJFseEWyBbSXc6cIf+Imawyysn3s3//veLLdXwFU+XrXqXJrLNfLpZMV0tdxdAXLTk1CPZckA5q0ym6apQPJ7M361IbZaYaTvcngUKJXzYcKFbZ4bEYoDSLoHq79XyNCAIfllW4q+g/s74kLLmesB5BuL3dpAK4VLH34PNUArYbKX5J8kG6RprUjuh7rgYpD91xrdZGEZLal8YpY=
+  file: src/dev.zip
   on:
     tags: false
     repo: filfat-Studios-AB/3ds.js
