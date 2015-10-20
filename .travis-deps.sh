@@ -12,6 +12,8 @@ cd ctrulib/libctru && make ; cd -
 sudo cp -rf ctrulib/libctru/ ${DEVKITPRO}
 
 # Get, Build & Install dependencies
+PATH=$PATH:$(DEVKITARM)/bin:$(PATH)
+export PATH
 
 # portlibs
 git clone https://github.com/xerpi/3ds_portlibs.git
