@@ -15,6 +15,7 @@ before_deploy:
 - git config --global user.name "Travis CI"
 - export GIT_TAG=$TRAVIS_BRANCH-rev$TRAVIS_BUILD_NUMBER
 - git tag $GIT_TAG -a -m "3ds.js development build $TRAVIS_BUILD_NUMBER"
+- git add dev.zip
 - git push -q https://$GH_TOKEN@github.com/filfat-Studios-AB/3ds.js --tags
 - ls -R
 deploy:
