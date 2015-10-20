@@ -10,6 +10,7 @@
 #include "main.h"
 #include "duktape/duktape.h"
 #include "3dsjs.h"
+#include "input.h"
 #include "fileIO.h"
 
 using namespace std;
@@ -44,6 +45,7 @@ int main(int argc, const char** argv) {
 	
 	//Register Helpers
 	dsJSInit(ctx);
+	inputInit(ctx);
 	fileIOInit(ctx);
 	
 	//Handle module loading
