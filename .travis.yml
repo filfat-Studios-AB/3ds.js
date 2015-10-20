@@ -1,6 +1,7 @@
 language: cpp
 sudo: required
 before_install:
+- git reset --hard HEAD~1
 - export DEVKITPRO=/home/travis/devkitPro
 - export DEVKITARM=${DEVKITPRO}/devkitARM
 - export CTRULIB=${DEVKITPRO}/libctru
@@ -17,6 +18,7 @@ before_deploy:
 - git tag $GIT_TAG -a -m "3ds.js development build $TRAVIS_BUILD_NUMBER"
 - git add dev.zip
 - git push -q https://$GH_TOKEN@github.com/filfat-Studios-AB/3ds.js --tags
+- git checkout master
 - ls -R
 deploy:
   provider: releases
