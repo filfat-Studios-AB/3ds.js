@@ -12,10 +12,9 @@ cd ctrulib/libctru && make ; cd -
 sudo cp -rf ctrulib/libctru/ ${DEVKITPRO}
 
 # Get, Build & Install dependencies
-export PATH=$PATH:/home/travis/devkitPro/devkitArm/bin
 
 # portlibs
-git clone https://github.com/xerpi/3ds_portlibs.git
+git clone https://github.com/filfat/3ds_portlibs.git
 cd 3ds_portlibs && sudo make all ; cd -
 
 # sf2dlib
