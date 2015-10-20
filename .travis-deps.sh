@@ -12,3 +12,18 @@ cd ctrulib/libctru && make ; cd -
 sudo cp -rf ctrulib/libctru/ ${DEVKITPRO}
 
 # Get, Build & Install dependencies
+
+# portlibs
+git clone https://github.com/xerpi/3ds_portlibs.git
+cd 3ds_portlibs
+cd -
+
+# sf2dlib
+
+# sftdlib
+
+# sfillib
+
+# 3DS_UI
+git clone https://github.com/filfat/3DS_UI.git
+cd 3DS_UI ; cd - # TODO: Build
