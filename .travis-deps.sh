@@ -12,7 +12,7 @@ cd ctrulib/libctru && make ; cd -
 sudo cp -rf ctrulib/libctru/ ${DEVKITPRO}
 
 # Get, Build & Install dependencies
-PATH=$PATH:$(DEVKITARM)/bin:$(PATH)
+PATH=$PATH:/home/travis/devkitPro/devkitArm/bin:$(PATH)
 export PATH
 
 # portlibs
