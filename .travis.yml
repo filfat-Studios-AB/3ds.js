@@ -1,7 +1,7 @@
 language: cpp
 sudo: required
 before_install:
-- git branch --merged master | grep -v master | xargs git branch -d
+- git branch -D master-35  master-33
 - export DEVKITPRO=/home/travis/devkitPro
 - export DEVKITARM=${DEVKITPRO}/devkitARM
 - export CTRULIB=${DEVKITPRO}/libctru
