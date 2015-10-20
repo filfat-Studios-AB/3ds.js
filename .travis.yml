@@ -10,13 +10,13 @@ script:
 - make clean
 - make
 before_deploy:
-- rm -f dev.zip
+- rm dev.zip
 - zip dev *.3dsx *.smdh
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
 - export GIT_TAG=$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
 - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-- git push --force --quiet https://${secure}@github.com/filfat-Studios-AB/3ds.js --tags
+- git push --force --quiet https://$secure@github.com/filfat-Studios-AB/3ds.js --tags
 - ls -R
 deploy:
   provider: releases
