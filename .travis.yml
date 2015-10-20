@@ -1,7 +1,7 @@
 language: cpp
 sudo: required
 before_install:
-- git reset --hard HEAD~1
+- git branch --merged master | grep -v master | xargs git branch -d
 - export DEVKITPRO=/home/travis/devkitPro
 - export DEVKITARM=${DEVKITPRO}/devkitARM
 - export CTRULIB=${DEVKITPRO}/libctru
