@@ -1,7 +1,5 @@
 language: cpp
 sudo: required
-before_deploy:
-- zip dev *.3dsz *.smdh
 before_install:
 - export DEVKITPRO=/home/travis/devkitPro
 - export DEVKITARM=${DEVKITPRO}/devkitARM
@@ -11,10 +9,18 @@ script:
 - cd src
 - make clean
 - make
+before_deploy:
+- git config --global user.email "builds@travis-ci.com"
+- git config --global user.name "Travis CI"
+- export GIT_TAG=$TRAVIS_BRANCH-0.1.$TRAVIS_BUILD_NUMBER
+- git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+- git push -q https://$TAGPERM@github.com/filfat-Studios-AB/3ds.js --tags
+- ls -R
 deploy:
   provider: releases
   api_key:
     secure: QDV8v5ayUtaTaO6pOZ0UX3AAKElIM1oYMTqRHT9EmhQ21IjvZFzN6m96yfNRb8G/58qzJ18BrbnQ2DOl9555f/avdfFbD2/0olh37VHrCLbhTEmxUKXLmhmRoKEc3sUeh7HS+j6kL5IiY/cvcaN6BrHa0o/HEh5pzCGzLxc0okSvsnM6DwO+SqF3z+lifabBrAxFJLpjulfsiyxOI+sVkMS4v4Q8nqRmedExZjoKdpJNpusMd0qCIztEfma4yCvqMkLPmkKoCpJ3FGMCbj9quiQoh2jm8tKQcVk+/DtjsFS/mwNuTWLFuHzuVfq/Jwf8rYuQYzQgmir1bTj/6SH6dfoxs29nq5MX0pu/fhMN86XHDGDRJMxqvYDbyCOnwESrQh1E/n1nxk+cv2Y7YsNZ5aouyjAv9SeSg1vSpwLzj6pPB7VKDLSyc2nD90FysOr6rVW0wFMni7sUym2w6PIRIXps8pHXolT6vMM0L2wWNdpvKTNLsqNgpKGk6doo3UJqzV8GtNls5jBOfKtbneY+IyBabaN8CgxEymCsdW7KvAAz32N5LyNWhoj2bZ7+SceFyiDS24WPnMmuikhaNkTLZ8yyWg9IyYQc1O8wIvPXFYPyiL0IDw7speJkmNTF805YO2+3B4H3s69A4jiifRTEgJ62Ch1pFP/j7fI8MWCDRMA=
-  file: src/dev.zip
+  file: dev.zip
   on:
+    tags: false
     repo: filfat-Studios-AB/3ds.js
