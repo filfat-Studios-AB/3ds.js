@@ -15,7 +15,7 @@ sudo cp -rf ctrulib/libctru/ ${DEVKITPRO}
 
 # portlibs
 git clone https://github.com/xerpi/3ds_portlibs.git
-cd 3ds_portlibs && make all ; cd -
+cd 3ds_portlibs && sudo make all ; cd -
 
 # sf2dlib
 
