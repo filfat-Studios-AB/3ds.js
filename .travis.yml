@@ -1,7 +1,7 @@
 language: cpp
 sudo: required
 before_install:
-- git branch -D master-35  master-33
+- git branch | grep -v "master" | sed 's/^[ *]*//' | sed 's/^/git branch -d /' | bash
 - export DEVKITPRO=/home/travis/devkitPro
 - export DEVKITARM=${DEVKITPRO}/devkitARM
 - export CTRULIB=${DEVKITPRO}/libctru
@@ -32,6 +32,7 @@ deploy:
 branches:
   except:
     - /^*-rev[0-9]/
+    - /^*-[0-9]/
 env:
   global:
   - secure: kz+p4vqn3KDikVXy04SyUPxBHIicWyZt7U1v+RQn5aAWZ+aoZ0HCOocdhfZtAA2lWNycPtpZPauj+JVMrcn8l+XWuXihZcLMvmLEvdzJ95S6xd84zP+mZLIJyCFQCoNvbfl2CDSG5Mpmul9SWTzwnuS6xCHquTLrp9vUdYd1DDIr8a96ZVygQbM5dkJgn/zY8/Vm0XxJjsG7ZZnXlSt7o5OfF4nHyDkhvDPXBE9VKeCJUu3iI3CouXC9aNLT/7EjLbxNSyKWxvmeajNbsX/NB/U9YownoaXQgi5WIBgBGVFGYuEQHBdm9g3JfWZEwM3/DstJOc5UlRZpFPjZiA5uSM+3ajT2AnWjexk1NbwlxUgwUoZVdTGAXdp2XC8bm75fYnn5wOd4EVqLs2Rhh7+ZY9nrgt00n8LCdfhTf2E5Bq7MEcJ8kiCmr0G1STWjXxTjpypsCKYEvlGyvWKVlyOIeeYF2fHv5DvTxhMuJ/7D2kOJjPvj/VgLlrt1OD2PGjc0wyRpaTREEy/12LlgJjZiJS3qjLO7X1tzUsDoTS7iDS+Ziy+gnEZIDYJwTViQKzbFONkbv/1oa/eq4rX7+Wh/0niD7NUVHSmKUqbcAwzUWDrf1OLXQBxiqezQh+++Yq1T8+gDhQLZqf8T9vdbluF/HywS7qMs5ZQsGEDDauO0iVM=
