@@ -2,6 +2,9 @@ language: cpp
 
 sudo: required
 
+before_deploy:
+  - zip dev *.3dsz *.smdh
+
 before_install:
   - export DEVKITPRO=/home/travis/devkitPro
   - export DEVKITARM=${DEVKITPRO}/devkitARM
