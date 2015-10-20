@@ -26,9 +26,6 @@ deploy:
   on:
     tags: false
     repo: filfat-Studios-AB/3ds.js
-branches:
-  except:
-    - /^*-v[0-9]/
 	
 env:
   global:
