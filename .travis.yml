@@ -1,7 +1,6 @@
 language: cpp
 sudo: required
 before_install:
-- git branch | grep -v "master" | sed 's/^[ *]*//' | sed 's/^/git branch -d /' | bash
 - export DEVKITPRO=/home/travis/devkitPro
 - export DEVKITARM=${DEVKITPRO}/devkitARM
 - export CTRULIB=${DEVKITPRO}/libctru
