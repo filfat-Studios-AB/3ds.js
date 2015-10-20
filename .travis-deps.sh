@@ -14,10 +14,12 @@ sudo cp -rf ctrulib/libctru/ ${DEVKITPRO}
 # Get, Build & Install dependencies
 
 # portlibs
-git clone https://github.com/filfat/3ds_portlibs.git
-cd 3ds_portlibs && sudo make all ; cd -
+# git clone https://github.com/xerpi/3ds_portlibs.git
+# cd 3ds_portlibs && sudo make all ; cd -
 
 # sf2dlib
+git clone https://github.com/xerpi/sf2dlib.git
+cd sf2dlib/libsf2d && sudo make install ; cd -
 
 # sftdlib
 
