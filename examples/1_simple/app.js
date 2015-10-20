@@ -22,9 +22,9 @@ function banchmark1() {
 			res.push(fib(i));
 		}
 	}
-	var t0 = new Date();
+	var t0 = new Date().getTime();
 	test();
-	var t1 = new Date();
+	var t1 = new Date().getTime();
 	print("Took " + (t1 - t0).toString() + " millisecond(s).");
 }
 
