@@ -13,8 +13,8 @@ before_deploy:
 - zip dev *.3dsx *.smdh
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
-- export GIT_TAG=$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
-- git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+- export GIT_TAG=$TRAVIS_BRANCH-rev$TRAVIS_BUILD_NUMBER
+- git tag $GIT_TAG -a -m "3ds.js development build $TRAVIS_BUILD_NUMBER"
 - git push -q https://$GH_TOKEN@github.com/filfat-Studios-AB/3ds.js --tags
 - ls -R
 deploy:
@@ -25,9 +25,10 @@ deploy:
   on:
     tags: false
     repo: filfat-Studios-AB/3ds.js
+    all_branches: true
 branches:
   except:
-    - /^*-v[0-9]/
+    - /^*-rev[0-9]/
 env:
   global:
   - secure: kz+p4vqn3KDikVXy04SyUPxBHIicWyZt7U1v+RQn5aAWZ+aoZ0HCOocdhfZtAA2lWNycPtpZPauj+JVMrcn8l+XWuXihZcLMvmLEvdzJ95S6xd84zP+mZLIJyCFQCoNvbfl2CDSG5Mpmul9SWTzwnuS6xCHquTLrp9vUdYd1DDIr8a96ZVygQbM5dkJgn/zY8/Vm0XxJjsG7ZZnXlSt7o5OfF4nHyDkhvDPXBE9VKeCJUu3iI3CouXC9aNLT/7EjLbxNSyKWxvmeajNbsX/NB/U9YownoaXQgi5WIBgBGVFGYuEQHBdm9g3JfWZEwM3/DstJOc5UlRZpFPjZiA5uSM+3ajT2AnWjexk1NbwlxUgwUoZVdTGAXdp2XC8bm75fYnn5wOd4EVqLs2Rhh7+ZY9nrgt00n8LCdfhTf2E5Bq7MEcJ8kiCmr0G1STWjXxTjpypsCKYEvlGyvWKVlyOIeeYF2fHv5DvTxhMuJ/7D2kOJjPvj/VgLlrt1OD2PGjc0wyRpaTREEy/12LlgJjZiJS3qjLO7X1tzUsDoTS7iDS+Ziy+gnEZIDYJwTViQKzbFONkbv/1oa/eq4rX7+Wh/0niD7NUVHSmKUqbcAwzUWDrf1OLXQBxiqezQh+++Yq1T8+gDhQLZqf8T9vdbluF/HywS7qMs5ZQsGEDDauO0iVM=
