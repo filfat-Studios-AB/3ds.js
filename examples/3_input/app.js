@@ -15,5 +15,5 @@ while(1){
         print("Key: " + inp);
     
     if(toh.isDown)
-        print('Touch: ' + toh.x + ', ' + toh.y);
+        print("Touch: " + toh.x + ", " + toh.y);
 }
